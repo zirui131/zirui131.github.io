@@ -1,0 +1,30 @@
+<html>
+	<head>
+		<title> Pakej Info </title>
+	</head>
+	<body>
+	<?php
+		if(!empty($_POST["Pakej_info"])){
+			$Pakej_info = $_POST["Pakej_info"];
+			$toEmail = $_POST["ngzirui131@gmail.com"];
+			
+			$mailHeaders = "Pakej_info"
+			"\r\n Pakej_info: " . $Pakej_info . "\r\n";
+			
+			if(mail($toEmail, $Pakej_info, $umailHeaders)){
+				$message = "Info pakej kamu sudah hantar. ";
+			}
+		
+		}
+	?>
+		<div class="input">
+			<label for="Pakej_info">Pakej Info:</label>
+			<input type="text"  id="Pakej_info" name="Pakej_info">
+			<input type="submit" value="Hantar">
+		</div>
+		<?php if(!empty($message)){ ?>
+		<div class="done">
+			<h2 style="color:MediumSeaGreen;"><?php echo $message; ?></h2>
+		</div>
+	</body>
+</html>
